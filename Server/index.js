@@ -4,7 +4,7 @@ const server = require('./App/app')
 
 const { MONGO_DB_CONNECTION, PORT } = process.env
 
-const port = PORT || 3001
+const port = PORT || 3000
 
 const connectionString = `${MONGO_DB_CONNECTION}`
 
