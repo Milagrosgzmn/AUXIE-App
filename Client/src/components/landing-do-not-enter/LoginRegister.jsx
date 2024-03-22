@@ -299,87 +299,87 @@ function LoginRegister() {
     },[]);
 
     return (
-        <div className='w-11/12'>
+        <div className='w-11/12 flex items-center'>
               
-        <div className=''>
+        <div className='flex flex-col items-center justify-center w-full'>
           
-        <Container className={style.container}>
-                <SignUpContainer signingin={signIn}>
-                    <Form id='form'>
-                        <Title>Registrarse</Title>
-                        <Input type='text' placeholder='Nombre' name='firstName' onChange={handleSignUpChange} />
+            <Container className={style.container}>
+                    <SignUpContainer signingin={signIn}>
+                        <Form id='form'>
+                            <Title>Registrarse</Title>
+                            <Input type='text' placeholder='Nombre' name='firstName' onChange={handleSignUpChange} />
 
-                        <div className={style.errors}>
-                            <p>{errors.firstName}</p>
-                        </div>
-                        <Input type='text' placeholder='Apellido' name='lastName' onChange={handleSignUpChange} />
-                        <div className={style.errors}>
-                            <p>{errors.lastName}</p>
-                        </div>
-                        <Input type='number' placeholder='Edad' name='age' onChange={handleSignUpChange} />
-                        <div className={style.errors}>
-                            <p>{errors.age}</p>
-                        </div>
-                        <Input type='text' placeholder='Usuario' name='username' onChange={handleSignUpChange} />
-                        <div className={style.errors}></div>
-                        <Input type='email' placeholder='Email' name='email' onChange={handleSignUpChange} />
-                        <div className={style.errors}>
-                            <p>{errors.email}</p>
-                        </div>
-                        <Input type='password' placeholder='contraseña' name='password' onChange={handleSignUpChange} />
-                        <div className={style.errors}>
-                            <p>{errors.password}</p>
-                        </div>
-                        <select onChange={handleSignUpChange} name='gender' defaultValue={''}>
-                            <option disabled value=''>
-                                Género
-                            </option>
-                            <option value='Masculino'>Masculino</option>
-                            <option value='Femenino'>Femenino</option>
-                            <option value='Otro'>Otro</option>
-                        </select>
+                            <div className={style.errors}>
+                                <p>{errors.firstName}</p>
+                            </div>
+                            <Input type='text' placeholder='Apellido' name='lastName' onChange={handleSignUpChange} />
+                            <div className={style.errors}>
+                                <p>{errors.lastName}</p>
+                            </div>
+                            <Input type='number' placeholder='Edad' name='age' onChange={handleSignUpChange} />
+                            <div className={style.errors}>
+                                <p>{errors.age}</p>
+                            </div>
+                            <Input type='text' placeholder='Usuario' name='username' onChange={handleSignUpChange} />
+                            <div className={style.errors}></div>
+                            <Input type='email' placeholder='Email' name='email' onChange={handleSignUpChange} />
+                            <div className={style.errors}>
+                                <p>{errors.email}</p>
+                            </div>
+                            <Input type='password' placeholder='contraseña' name='password' onChange={handleSignUpChange} />
+                            <div className={style.errors}>
+                                <p>{errors.password}</p>
+                            </div>
+                            <select onChange={handleSignUpChange} name='gender' defaultValue={''}>
+                                <option disabled value=''>
+                                    Género
+                                </option>
+                                <option value='Masculino'>Masculino</option>
+                                <option value='Femenino'>Femenino</option>
+                                <option value='Otro'>Otro</option>
+                            </select>
+                            
+                        {loading ? (
+                            <CircularProgress />
+                        ) : (
+                            <Button onClick={handleRegisterSubmit} className={style.sendbutton }disabled={buttonDisabled()}>Registrarse</Button>
+                            
+                        )}
                         
-                    {loading ? (
-                        <CircularProgress />
-                    ) : (
-                        <Button onClick={handleRegisterSubmit} className={style.sendbutton }disabled={buttonDisabled()}>Registrarse</Button>
-                        
-                    )}
-                     
-                    </Form>
-                </SignUpContainer>
-                <SignInContainer signingin={signIn}>
-                    <Form onSubmit={handleSubmit} id='form'>
-                        <Title>Iniciar Sesión</Title>
-                        <Input type='email' placeholder='Email' value={input.email} name='email' onChange={handleChange} />
-                        <div className={style.errors}>
-                            <p>{errors.email}</p>
-                        </div>
-                        <Input type='password' placeholder='Password' value={input.password} name='password' onChange={handleChange} />
-                        <div className={style.errors}>
-                           
-                        </div>
-                        <Link to={('/resetpassword')}>
-                        <Anchor href='#'>¿Olvidaste tu contraseña?</Anchor>
-                        </Link>
+                        </Form>
+                    </SignUpContainer>
+                    <SignInContainer signingin={signIn}>
+                        <Form onSubmit={handleSubmit} id='form'>
+                            <Title>Iniciar Sesión</Title>
+                            <Input type='email' placeholder='Email' value={input.email} name='email' onChange={handleChange} />
+                            <div className={style.errors}>
+                                <p>{errors.email}</p>
+                            </div>
+                            <Input type='password' placeholder='Password' value={input.password} name='password' onChange={handleChange} />
+                            <div className={style.errors}>
+                            
+                            </div>
+                            <Link to={('/resetpassword')}>
+                            <Anchor href='#'>¿Olvidaste tu contraseña?</Anchor>
+                            </Link>
 
-                        <Button className={style.sendbutton}>Inicia Sesión</Button>
-                    </Form>
-                </SignInContainer>
-                <OverlayContainer signingin={signIn}>
-                    <Overlay signingin={signIn}>
-                        <LeftOverlayPanel signingin={signIn}>
-                            <Title>¡Bienvenido!</Title>
-                            <Paragraph>¡Inicia sesión ahora para acceder a Auxie!</Paragraph>
-                            <GhostButton onClick={() => toggle(true)} className={style.sendbutton}>Inicia Sesión</GhostButton>
-                        </LeftOverlayPanel>
-                        <RightOverlayPanel signingin={signIn}>
-                            <Title>¡Bienvenido!</Title>
-                            <Paragraph>Completa el formulario para crear tu cuenta</Paragraph>
-                            <GhostButton className={style.sendbutton} onClick={() => toggle(false)}>Registrarse</GhostButton>
-                        </RightOverlayPanel>
-                    </Overlay>
-                </OverlayContainer>
+                            <Button className={style.sendbutton}>Inicia Sesión</Button>
+                        </Form>
+                    </SignInContainer>
+                    <OverlayContainer signingin={signIn}>
+                        <Overlay signingin={signIn}>
+                            <LeftOverlayPanel signingin={signIn}>
+                                <Title>¡Bienvenido!</Title>
+                                <Paragraph>¡Inicia sesión ahora para acceder a Auxie!</Paragraph>
+                                <GhostButton onClick={() => toggle(true)} className={style.sendbutton}>Inicia Sesión</GhostButton>
+                            </LeftOverlayPanel>
+                            <RightOverlayPanel signingin={signIn}>
+                                <Title>¡Bienvenido!</Title>
+                                <Paragraph>Completa el formulario para crear tu cuenta</Paragraph>
+                                <GhostButton className={style.sendbutton} onClick={() => toggle(false)}>Registrarse</GhostButton>
+                            </RightOverlayPanel>
+                        </Overlay>
+                    </OverlayContainer>
             </Container>
             <center>
                 <button className={style.googlebutton} onClick={signInGoogle}>

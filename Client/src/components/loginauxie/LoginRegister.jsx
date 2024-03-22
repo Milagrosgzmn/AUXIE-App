@@ -286,7 +286,7 @@ function LoginRegisterAuxie() {
     return (
         <div className='w-11/12'>
            
-            <div>
+           <div className='flex flex-col items-center justify-center w-full'>
                 <Container className={style.container}>
                     <SignUpContainer signingin={signIn}>
                         <Form id='form'>
