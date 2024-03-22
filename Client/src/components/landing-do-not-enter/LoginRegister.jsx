@@ -286,12 +286,24 @@ function LoginRegister() {
         }
     }
 
+    //set predefined user
+    useEffect(()=>{
+        const predefinedUser = import.meta.env.VITE_USER;
+        const predefinedPassword = import.meta.env.VITE_PASSWORD;
+        setInput(prev=>{
+            return { ...prev,
+            email: predefinedUser,
+            password: predefinedPassword }; 
+        })
+
+    },[]);
+
     return (
-        <div>
+        <div className='w-11/12'>
               
-        <div>
+        <div className=''>
           
-            <Container className={style.container}>
+        <Container className={style.container}>
                 <SignUpContainer signingin={signIn}>
                     <Form id='form'>
                         <Title>Registrarse</Title>
@@ -339,11 +351,11 @@ function LoginRegister() {
                 <SignInContainer signingin={signIn}>
                     <Form onSubmit={handleSubmit} id='form'>
                         <Title>Iniciar Sesión</Title>
-                        <Input type='email' placeholder='Email' name='email' onChange={handleChange} />
+                        <Input type='email' placeholder='Email' value={input.email} name='email' onChange={handleChange} />
                         <div className={style.errors}>
                             <p>{errors.email}</p>
                         </div>
-                        <Input type='password' placeholder='Password' name='password' onChange={handleChange} />
+                        <Input type='password' placeholder='Password' value={input.password} name='password' onChange={handleChange} />
                         <div className={style.errors}>
                            
                         </div>
