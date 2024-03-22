@@ -11,8 +11,8 @@ const Footer = ({ myRef3 }) => {
             <div
                 className={
                     nightMode
-                        ? 'flex items-center justify-evenly bg-rgb(10,11,37) text-center '
-                        : 'flex items-center justify-evenly text-center '
+                        ? 'flex items-center justify-between px-16 bg-rgb(10,11,37) text-center '
+                        : 'flex items-center justify-between px-16 text-center '
                 }
             >
                 <img src={CircleIconAuxie} alt='logo-ct' className='w-24' />

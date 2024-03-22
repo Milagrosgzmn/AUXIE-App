@@ -28,7 +28,6 @@ const Landing = () => {
         menuSearchAuxie,
         buttonMenu,
         serviceCards,
-        sectionMenu,
     } = style
     const { ref: myRef, inView: firstObserver } = useInView()
 
@@ -118,8 +117,9 @@ const Landing = () => {
             />
 
             <main className={!menuLanding ? landing : hiden}>
+                <div className='w-full'>
                 <Animated animationIn='fadeIn' animationOut='fadeOut' animationInDuration={1000} isVisible={true}>
-                    <section className={sectionMenu}>
+                    <section className={style.sectionMenu}>
                         <div className={!nightMode ? `${menuLogo} ${menuLogoLight}` : `${menuLogo} ${menuLogoNight}`}>
                             <div
                                 className={
@@ -161,6 +161,7 @@ const Landing = () => {
                         </div>
                     </section>
                 </Animated>
+                </div>
 
                 {/* Section Slogan */}
                 <Animated animationIn='slideInUp' animationOut='fadeOut' animationInDuration={1000} isVisible={true}>
@@ -181,7 +182,7 @@ const Landing = () => {
                                     : `${buttonSloganCont} ${buttonSloganContNight}  `
                             }
                         >
-                            <button className={style.buttonSlogan} onClick={handleClick} value={'toClientForm'}>
+                            <button className='' onClick={handleClick} value={'toClientForm'}>
                                 Contratar
                             </button>
                         </div>

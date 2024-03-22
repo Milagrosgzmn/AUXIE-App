@@ -1,6 +1,5 @@
 // import { shuffle } from '../../utils/shuffle'
 import { useSelector } from 'react-redux'
-import style from './featuredAuxies.module.scss'
 import FeaturedCard from './featuredCard/FeaturedCard'
 
 const FeaturedAuxies = () => {
@@ -12,7 +11,8 @@ const FeaturedAuxies = () => {
     // const shuffledAuxies = shuffle(auxiesToShuffle)
     const topAuxies = auxiesToShuffle.splice(0, 3)
     return (
-        <div className={style.featuredAuxies}>
+        <div className='flex justify-center items-center'>
+            <div className='mb-8 my-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 px-4'>
             {topAuxies &&
                 topAuxies.map((aux) => (
                     <FeaturedCard
@@ -26,6 +26,7 @@ const FeaturedAuxies = () => {
                         bio={aux.bio}
                     />
                 ))}
+        </div>
         </div>
     )
 }
