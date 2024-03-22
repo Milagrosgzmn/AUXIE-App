@@ -1,6 +1,5 @@
 import style from './auxieLogin.module.scss'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
 import NavLanding from '../../../components/nav-landing/NavLanding'
 // Hooks
 import { useEffect, useState } from 'react'
@@ -8,7 +7,6 @@ import { useValidations } from '../../../utils/validationutils'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { loggedUser, updateProfile } from '../../../redux/actions/actions'
-import { signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../../../config/firebase-config'
 import Swal from 'sweetalert2'
 import Pruebas from '../../pruebas/PruebasAuxie'
@@ -96,70 +94,21 @@ const ClientLogin = () => {
             }
         }
     }, [access])
-    const handleSubmit = async e => {
-        e.preventDefault()
-
-        // algun get en la base de datos que busque si el usuario y contrasena coinciden
-        const form = document.getElementById('form')
-        const email = form.email.value
-        const password = form.password.value
-        try {
-            const credential = await signInWithEmailAndPassword(auth, email, password)
-            if (credential) {
-                handleLogin(input)
-            }
-            form.reset()
-        } catch (error) {
-            Swal.fire(error.message)
-        }
-        //navigate home / search auxies ///
-    }
-
-    //para desabilitar el boton si no esta lleno el formulario
-    const buttonDisabled = () => {
-        // Check if the "types" field is empty
-        if (input.password.trim().length === 0 || input.email.trim().length === 0) {
-            return true
-        }
-
-        // Check if any error message is not empty for other fields
-        for (let error in errors) {
-            if (errors[error] !== '') {
-                return true
-            }
-        }
-
-        return false
-    }
-    //google Login
-    const signInGoogle = async () => {
-        try {
-            const provider = new GoogleAuthProvider()
-            provider.setCustomParameters({ prompt: 'select_account' })
-            const credential = await signInWithPopup(auth, provider)
-            const email = credential.user.email
-            const googleId = credential.user.uid
-            if (credential) {
-                const data = {
-                    email: email,
-                    password: {
-                        googleId: `${googleId}`,
-                        name: `${credential.user.displayName}`,
-                        picture: `${credential.user.photoURL}`,
-                    },
-                }
-                handleLogin(data)
-            }
-        } catch (error) {
-            Swal.fire(error.message)
-        }
-    }
+    const [isActive,setActive] = useState(true);
 
     return (
         <>
         <NavLanding />
              <div className={style.login}>
-             <Pruebas />
+             {isActive && 
+             <div className='flex flex-col m-auto'>
+                <button className={style.xButton} onClick={() => {setActive(false)
+                    navigate('/')}
+                }>
+                                X
+                </button>
+                <Pruebas />
+            </div>}
              </div>
              
          </>

@@ -24,12 +24,15 @@ const NewProfileConsumers = () => {
     return (
         <>
             <NavGeneral />
-            <main className='flex h-[93vh] bg-div-color-dark'>
-                <div className='absolute top-[25%] left-[8.4rem] '>
-                    <img className='rounded-[50%] w-[500px] h-[500px]' src={image.secure_url} alt='Profile Image' />
-                </div>
+            <main className='flex bg-div-color-dark'>
+                
                 {/* Vista Izquierda */}
-                <div className='gradient-to-br from-blue-100 to-blue-800 p-8 h-[93vh] w-96'></div>
+                <div className='gradient-to-br from-blue-100 to-blue-800 p-8 w-96 flex justify-center relative '>
+                    <div className='absolute top-[25%] w-11/12
+                    '>
+                        <img className='rounded-[50%]' src={image.secure_url} alt='Profile Image' />
+                    </div>
+                </div>
                 {/* Vista derecha */}
                 <div className='bg-gray-50 h-full flex-1  '>
                     {/* Container vista derecha */}
@@ -44,7 +47,7 @@ const NewProfileConsumers = () => {
                             </button>
                         </div>
                         {/* Container info usuario */}
-                        <div className='flex flex-col justify-start  gap-16'>
+                        <div className='flex flex-col justify-start px-4 gap-16'>
                             <h3 className='text-[2rem] border-t-4 border-blue-600'>Información personal</h3>
                             <ul className='flex flex-col  gap-8 text-xl'>
                                 <li>

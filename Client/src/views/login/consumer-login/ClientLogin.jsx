@@ -155,13 +155,22 @@ const ClientLogin = () => {
         }
     }
 
+    const [isActive,setActive] = useState(true);
     //////
 
     return (
         <>
        <NavLanding />
             <div className={style.login}>
-            <Pruebas />
+            {isActive && 
+             <div className='flex flex-col m-auto'>
+                <button className={style.xButton} onClick={() => {setActive(false)
+                    navigate('/')}
+                }>
+                                X
+                </button>
+                <Pruebas />
+            </div>}
             </div>
             
         </>

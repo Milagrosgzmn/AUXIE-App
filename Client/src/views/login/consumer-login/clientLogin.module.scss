@@ -65,7 +65,10 @@
     }
 }
 .login {
-   
+    .xButton{
+        width: 3em;
+        margin-bottom: 1em;
+    }
     button {
         display: flex;
         color: black;

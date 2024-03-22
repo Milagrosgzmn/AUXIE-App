@@ -25,7 +25,6 @@ const Landing = () => {
         buttonSloganCont,
         buttonSloganContLight,
         buttonSloganContNight,
-        searchAuxie,
         menuSearchAuxie,
         buttonMenu,
         serviceCards,
@@ -130,10 +129,10 @@ const Landing = () => {
                                 }
                             >
                                 <div className={style.buttonsMenuMain}>
-                                    <button onClick={handlerMenuSearchAuxie} className={searchAuxie}>
+                                    <button onClick={handlerMenuSearchAuxie} className='w-1/2 rounded-t-xl py-2'>
                                         Busco un Auxie
                                     </button>
-                                    <button onClick={handlerMenuBeAuxie} className={style.turnAuxie}>
+                                    <button onClick={handlerMenuBeAuxie} className='w-1/2 rounded-t-xl py-2'>
                                         Convertirme en Auxie
                                     </button>
                                 </div>
@@ -143,15 +142,15 @@ const Landing = () => {
                                             !nightMode ? menuSearchAuxie : `${menuSearchAuxie} ${menuSearchAuxieNight}`
                                         }
                                     >
-                                        <h3>Contrata a un Auxie que te ayude</h3>
+                                        <h4 className='px-2 text-center'>Contrata a un Auxie que te ayude</h4 >
                                         
-                                        <button onClick={handleClick} value={'toClientlogin'} className={buttonMenu}>
+                                        <button onClick={handleClick} value={'toClientlogin'} className=''>
                                             Necesito un Auxie
                                         </button>
                                     </div>
                                 ) : (
                                     <div className={style.menuTurnAuxie}>
-                                        <h3>Conviértete en Auxie y genera ganancias</h3>
+                                        <h4 className='px-2 text-center'>Conviértete en Auxie y genera ganancias</h4>
                                         
                                         <button onClick={handleClick} value={'toAuxieForm'} className={buttonMenu}>
                                             Convertirme en Auxie

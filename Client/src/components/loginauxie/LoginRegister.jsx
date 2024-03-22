@@ -11,7 +11,6 @@ import { auth } from '../../config/firebase-config'
 import Swal from 'sweetalert2'
 import style from './loginregister.module.scss'
 import { CircularProgress } from '@mui/material'
-import NavLanding from '../../components/nav-landing/NavLanding'
 function LoginRegisterAuxie() {
     const correo = 'auxieapp@gmail.com'
     const [signIn, toggle] = useState(true)
@@ -285,7 +284,7 @@ function LoginRegisterAuxie() {
     }
 
     return (
-        <div>
+        <div className='w-11/12'>
            
             <div>
                 <Container className={style.container}>
